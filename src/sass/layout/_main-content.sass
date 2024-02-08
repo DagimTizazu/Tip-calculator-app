@@ -1,0 +1,106 @@
+main
+    padding-top: 52px
+
+.logo
+    width: 85px
+    display: block
+    margin: 0px auto 35px
+
+.main__wrapper
+    text-align: left
+    background: $white
+    padding: 28px 30px 30px
+    border-radius: 25px
+
+.main-label
+    display: inline-block
+    font-size: .95em
+    margin-bottom: 5px
+
+.main-input-wrapper
+    display: flex
+    width: 100%
+    align-items: center
+    background-color: $very-light-grayish-cyan
+    border: 2px solid $very-light-grayish-cyan
+    border-radius: 5px
+    margin-bottom: 30px
+    &:hover
+        border: 2px solid $strong-cyan
+
+.main-image-container
+    align-self: stretch
+    display: flex
+    align-items: center
+    justify-content: center
+    padding-left: 18px
+
+.bill-input
+    padding: 5px
+    padding-right: 17px
+    width: 100%
+    color: $very-dark-cyan
+    font-size: 1.4em
+    background: inherit
+    border-radius: inherit
+
+.button-wrapper
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: repeat(3, 1fr)
+    gap: 15px
+    justify-content: space-between
+    margin-top: 10px
+    margin-bottom: 30px
+
+.tip-button
+    height: 45px
+    color: $white
+    background: $very-dark-cyan
+    font-size: 1.4em
+    border-radius: 7px
+    &:hover
+        background: lighten($strong-cyan, 30%)
+        color: $very-dark-cyan
+
+.custom-input
+    padding-right: 17px
+    border-radius: 7px
+    width: 100%
+    background: $very-light-grayish-cyan
+    font-size: 1.4em
+    &:hover
+        border: 2px solid $strong-cyan
+
+.result-wrapper
+    background: $very-dark-cyan
+    border-radius: 15px
+    padding: 30px 20px 20px
+
+.result-amount
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 20px
+
+.result-label
+    font-size: .9em
+    color: $white
+
+.per-label
+    font-size: .8em
+
+.result-value
+    font-size: 1.9em
+    color: $strong-cyan
+
+.reset-button
+    color: $very-dark-cyan
+    text-transform: uppercase
+    font-size: 1.2em
+    width: 100%
+    background: $strong-cyan
+    padding: 10px
+    border-radius: 5px
+    &:hover
+        background: lighten($strong-cyan, 30%)
