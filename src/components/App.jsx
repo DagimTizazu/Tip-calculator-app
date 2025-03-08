@@ -1,12 +1,19 @@
-import React from 'react'
-import Card from './card/Card'
+import React from "react";
+import Card from "./card/Card";
+
+let statuses = ["empty", "typing", "completed"];
 
 function App() {
   return (
     <>
-      <Card />
+      {statuses.map((status) => (
+        <section key={status} style={{ marginBottom: "200px" }}>
+          <h1 style={{ color: "red" }}>({status})</h1>
+          <Card status={status} />
+        </section>
+      ))}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
