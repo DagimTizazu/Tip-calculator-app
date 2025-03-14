@@ -1,59 +1,29 @@
 import React, { useState } from "react";
 
-function Input({ labelName, imgSrc, imgAltTxt }) {
-  const [noOfPeople, setNoOfPeople] = useState(0);
-  const [bill, setBill] = useState(0);
-
-  function handleInput(e) {
-    const inputName = e.target.getAttribute("name");
-
-    if (inputName === "bill") {
-      setBill(e.target.value);
-    } else if (inputName === "number-of-people") {
-      setNoOfPeople(e.target.value);
-      if (bill !== 0 && )
-    }
-
-    
-  }
-  /* const [noOfPeople, setNoOfPeople] = useState("0");
-  const [error, setError] = useState(false);
-
-  function handleInput(e) {
-    const inputName = e.target.getAttribute("name");
-
-    if (inputName === "number-of-people") {
-      setNoOfPeople(e.target.value);
-      console.log(`no of people: ${noOfPeople}`);
-    }
-
-    if (noOfPeople === "0") {
-      setError(true);
-    } else {
-      setError(false);
-    }
-  } */
-
+function Input({ name, value, imgSrc, imgAltTxt, error, onChange }) {
   return (
     <>
-      <label className="main-label">{labelName}</label>
+      <div className="main-label-wrapper">
+        <label className="main-label">{name}</label>
+        {error ? <p className="error-msg">{error}</p> : null}
+      </div>
       <br />
 
       <div
-        className="main-input-wrapper"
-        /* className={
-          error ? "main-input-wrapper error-msg" : "main-input-wrapper"
-        } */
+        className={
+          error ? "main-input-wrapper error-msg-border" : "main-input-wrapper"
+        }
       >
         <div className="main-image-container">
           <img className="bill-image" src={imgSrc} alt={imgAltTxt} />
         </div>
         <input
-          type="text"
-          name={labelName}
+          type="number"
+          name={name}
+          value={value}
           className="input-fields"
           placeholder="0"
-          onInput={handleInput}
+          onInput={onChange}
         ></input>
       </div>
     </>
