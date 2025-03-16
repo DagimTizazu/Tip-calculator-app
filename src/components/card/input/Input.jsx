@@ -1,6 +1,29 @@
 import React, { useState } from "react";
 
-function Input({ name, value, imgSrc, imgAltTxt, error, onChange }) {
+function Input({ name, imgSrc, imgAltTxt }) {
+  const [error, setError] = useState("");
+  const [bill, setBill] = useState("");
+  const [people, setPeople] = useState("");
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    if (value === "0") {
+      setError("Can't be zero");
+    } else {
+      setError("");
+    }
+    switch (name) {
+      case "bill":
+        setBill(value);
+        break;
+      case "number-of-people":
+        setPeople(value);
+        break;
+      default:
+        break;
+    }
+  }
+
   return (
     <>
       <div className="main-label-wrapper">
@@ -20,10 +43,10 @@ function Input({ name, value, imgSrc, imgAltTxt, error, onChange }) {
         <input
           type="number"
           name={name}
-          value={value}
+          value={name === "bill" ? bill : people}
           className="input-fields"
           placeholder="0"
-          onInput={onChange}
+          onInput={handleChange}
         ></input>
       </div>
     </>

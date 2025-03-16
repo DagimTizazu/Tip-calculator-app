@@ -7,9 +7,6 @@ import Result from "./result/Result";
 
 function Card({ status }) {
   const [selectedTip, setSelectedTip] = useState(0);
-  const [bill, setBill] = useState("");
-  const [people, setPeople] = useState("");
-  const [error, setError] = useState("");
 
   const buttonValues = [5, 10, 15, 25, 50];
 
@@ -17,37 +14,11 @@ function Card({ status }) {
     setSelectedTip(e.target.value);
   }
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    if (value === "0") {
-      setError("Can't be zero");
-    } else {
-      setError("");
-    }
-    switch (name) {
-      case "bill":
-        setBill(value);
-        break;
-      case "number-of-people":
-        setPeople(value);
-        break;
-      default:
-        break;
-    }
-  }
-
   return (
     <main>
       <img className="logo" src={Logo} alt="logo" />
       <div className="main__wrapper">
-        <Input
-          name="bill"
-          value={bill}
-          imgSrc={Dollar}
-          imgAltTxt="dollar sign"
-          error={error}
-          onChange={handleChange}
-        />
+        <Input name="bill" imgSrc={Dollar} imgAltTxt="dollar sign" />
 
         <div className="select-tip-btns-container">
           <label className="main-label">Select Tip %</label>
@@ -76,11 +47,8 @@ function Card({ status }) {
 
         <Input
           name="number-of-people"
-          value={people}
           imgSrc={Person}
           imgAltTxt="person icon"
-          error={error}
-          onChange={handleChange}
         />
 
         <Result status={status} />
